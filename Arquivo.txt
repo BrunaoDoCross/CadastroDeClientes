@@ -1,0 +1,9 @@
+        Cliente c = new Cliente(nome.getText(), cida.getText(), estado.getText(), cpf.getText());
+        lista.add(c);
+        HibernateUtil.beginTransaction();
+        HibernateUtil.getSession().merge(c);
+        HibernateUtil.commitTransaction();
+        HibernateUtil.closeSession();
+        montaTabela();
+        limpaCampo();
+        nome.requestFocusInWindow();
